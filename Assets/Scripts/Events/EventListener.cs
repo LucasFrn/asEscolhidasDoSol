@@ -5,15 +5,15 @@ using UnityEngine;
 public class CustomGameEvent : UnityEvent<Component, object> { }
 public class EventListener : MonoBehaviour
 {
-    public GameEvent combatEvents;
+    public GameEvent gameEvent;
     public CustomGameEvent resposta;
     private void OnEnable()
     {
-        combatEvents.AddListener(this);
+        gameEvent.AddListener(this);
     }
     private void OnDisable()
     {
-        combatEvents.RemoveListener(this);
+        gameEvent.RemoveListener(this);
     }
     public void OnEventRaised(Component sender, object data)
     {

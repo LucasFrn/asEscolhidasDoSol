@@ -13,7 +13,7 @@ public class QuestColetarMinerios : Quest
         Metas.Add(new MetaColeta(this, "Adamantita", "Deem um jeito de trazer 10 cristais de adamantita", false, 0, 10));
         Metas.Add(new MetaExploracao(this, "Tragam-me o material, estou esperando na minha forja", false, 0, 1));
     }
-    public void Coleta(Component sender, object data)
+    public void Coletar(Component sender, object data)
     {
         //Este método será chamado por um evento que ocorre quando o item é coletado
         if (data is string)

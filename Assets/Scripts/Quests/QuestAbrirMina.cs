@@ -11,7 +11,7 @@ public class QuestAbrirMina : Quest
         Metas.Add(new MetaColeta(this,"Alavanca da Mina", "Encontre a alavanca da mina", false, 0, 1));
         Metas.Add(new MetaExploracao(this, "Devolva a alavanca", false, 0, 1));
     }
-    public void Coleta(Component sender, object data)
+    public void Coletar(Component sender, object data)
     {
         //Este método será chamado por um evento que ocorre quando o item é coletado
         if (data is string)
