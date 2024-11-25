@@ -4,5 +4,20 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 823cdb21b086fad4f97494d31d384e46
+  - enabled: 1
+    path: Assets/Scenes/Ilha Fantasma/ForaDaMina.unity
+    guid: ef0bd65702aef684e89f58ab0c062b40
+  - enabled: 1
+    path: Assets/Scenes/Ilha Fantasma/DentroDaMina.unity
+    guid: 659d085f7eda0d54bb037098afcf7e17
+  - enabled: 1
+    path: Assets/Scenes/Derrota.unity
+    guid: 1169ae68d6971534283847271d973083
+  - enabled: 1
+    path: Assets/Scenes/Vitoria.unity
+    guid: 9f706a3f2701cf643b67b7ba65babed6
   m_configObjects: {}

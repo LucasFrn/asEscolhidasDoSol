@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ramp
+  - Caixa
+  - Character
+  - Inimigo
   layers:
   - Default
   - TransparentFX

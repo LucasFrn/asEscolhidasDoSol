@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Interagivel : MonoBehaviour
 {
@@ -29,7 +30,7 @@ public class Interagivel : MonoBehaviour
         //onItemColetado.Raise(this, nome);
         yield return new WaitForSeconds(2);
         txtInteracao.enabled = false;
-        Destroy(this.gameObject);
+        SceneManager.LoadScene(4);
     }
     private void OnTriggerEnter(Collider other)
     {
