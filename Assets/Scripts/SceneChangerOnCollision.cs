@@ -14,7 +14,7 @@ public class SceneChangerOnCollision : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             // Carrega a cena especificada para este monstro
-            //SceneManager.LoadScene(sceneName);
+            SceneManager.LoadScene(sceneName);
         }
     }
 }
