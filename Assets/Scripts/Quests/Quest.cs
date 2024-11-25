@@ -1,11 +1,11 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
 public class Quest : MonoBehaviour
 {
-    public List<Meta> Metas { get; set; } = new List<Meta>();
+    //public Character player;
+    public List<Meta> Metas;
     public string Nome { get; set; }
     public string Descricao { get; set; }
     public int RecompensaXp { get; set; }
@@ -14,16 +14,22 @@ public class Quest : MonoBehaviour
 
     public void ConferirMetas()
     {
-        Completa = (Metas.All(g => g.Completa));
-        if (Completa) Recompensar();
+        //Confere se todas as metas foram cumpridas e, caso verdadeiro irá recompensar o jogador
+        Completa = (Metas.All(m => m.completa));
+
+        if (Completa)
+        {
+            Debug.Log(Nome + " Concluída");
+            Recompensar();
+        }
     }
     void Recompensar()
     {
         if (RecompensaMoedas != null && RecompensaMoedas != 0)
         {
-            //InventarioController.Instance.DarMoedas(RecompensaMoedas)
+            Debug.Log("Recompensa dada");
+            //Este método irá conceder a recompensa em moedas ao jogador, quando a quest for completa
+            //player.GanharMoedas(RecompensaMoedas);
         }
     }
-
-
 }
