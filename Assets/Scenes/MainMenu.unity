@@ -1565,8 +1565,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Cuidado com o sap\xE3o, evite tocar na pele toxica dele. Seu objetivo
     \xE9 encontrar a alavanca e posicion\xE1-la na entrada da mina para escapar do
-    sap\xE3o.\nUse WASD para andar e SHIFT para correr, use E para interagir e os
-    obst\xE1culos para travar o sapo."
+    sap\xE3o.\nUse WASD para andar e SHIFT para correr, use E para interagir e tente
+    distrair o sap\xE3o."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
