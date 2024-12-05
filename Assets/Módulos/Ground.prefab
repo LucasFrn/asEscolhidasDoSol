@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5182604338965868571}
   - component: {fileID: 4493215856281030990}
   - component: {fileID: 4753785977274466980}
-  - component: {fileID: 535965284449817303}
+  - component: {fileID: 1259592682297236893}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -84,8 +84,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &535965284449817303
-MeshCollider:
+--- !u!65 &1259592682297236893
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -102,7 +102,6 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  serializedVersion: 3
+  m_Size: {x: 10.000002, y: 0, z: 10}
+  m_Center: {x: 0, y: 1.110223e-16, z: 0}
