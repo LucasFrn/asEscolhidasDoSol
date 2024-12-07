@@ -44,8 +44,8 @@ public class PlayerMovement : MonoBehaviour
             if (moveDirection != Vector3.zero)
             {
                 float targetAngle = Mathf.Atan2(moveDirection.x, moveDirection.z) * Mathf.Rad2Deg;
-                float snappedAngle = Mathf.Round(targetAngle / 90) * 90; // Ajusta para 90 graus
-                transform.rotation = Quaternion.Euler(0, snappedAngle, 0);
+                //float snappedAngle = Mathf.Round(targetAngle / 90) * 90; // Ajusta para 90 graus
+                transform.rotation = Quaternion.Euler(0, targetAngle, 0);
             }
 
             Vector3 move = moveDirection * currentSpeed;
