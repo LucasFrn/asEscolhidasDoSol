@@ -54,5 +54,6 @@ Material:
     - _BumpScale: 3
     - _GlossMapScale: 1
     - _Parallax: 0.02
-    m_Colors: []
+    m_Colors:
+    - _Color: {r: 0.5754717, g: 0.5179013, b: 0.49675152, a: 1}
   m_BuildTextureStacks: []
