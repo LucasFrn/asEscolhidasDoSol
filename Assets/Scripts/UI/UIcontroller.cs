@@ -7,7 +7,7 @@ public class UIcontroller : MonoBehaviour
 {
     public static UIcontroller instance; // Singleton opcional, caso necessário
     public GameObject tutorial; // Referência ao tutorial
-    public GameObject config; // Referência ao menu de configurações
+    public GameObject creditos; // Referência ao menu de configurações
     public GameObject PauseMenu; // Referência ao menu de pausa
     public bool pausado = false; // Indica se o jogo está pausado
 
@@ -25,8 +25,8 @@ public class UIcontroller : MonoBehaviour
 
     private void InicializarConfig()
     {
-        if (config != null)
-            config.SetActive(false); // Garante que o menu de configurações comece desativado
+        if (creditos != null)
+            creditos.SetActive(false); // Garante que o menu de configurações comece desativado
     }
 
     void Update()
@@ -64,10 +64,10 @@ public class UIcontroller : MonoBehaviour
         Application.Quit(); // Fecha o jogo (funciona somente no build)
     }
 
-    public void Config()
+    public void Creditos()
     {
-        if (config != null)
-            config.SetActive(true); // Ativa o menu de configurações
+        if (creditos != null)
+            creditos.SetActive(true); // Ativa o menu de configurações
     }
 
     public void TrocaCena(string cena)
@@ -86,7 +86,7 @@ public class UIcontroller : MonoBehaviour
     {
         if (tutorial != null)
             tutorial.SetActive(false); // Desativa o tutorial
-        if (config != null)
-            config.SetActive(false); // Desativa o menu de configurações
+        if (creditos != null)
+            creditos.SetActive(false); // Desativa o menu de configurações
     }
 }
