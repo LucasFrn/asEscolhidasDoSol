@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -7,6 +8,11 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
     private bool canMove = true;     // Controla se o jogador pode se mover
 
+    private CharacterController controller;
+    float gravity = 50;
+    private float rot;
+    private float rotSpeed = 200;
+    private Vector3 movedirection;
     private Animator animator;
     private float vZ = 0f;
     private float vX = 0f;
@@ -25,35 +31,46 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        controller = GetComponent<CharacterController>();
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
     }
 
     void Update()
     {
+        
         if (canMove) // Executa os comandos somente se puder se mover
         {
-            float currentSpeed = Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : moveSpeed;
-
-            float moveX = Input.GetAxis("Horizontal");
-            float moveZ = Input.GetAxis("Vertical");
-
-            Vector3 moveDirection = new Vector3(moveX, 0, moveZ).normalized;
-
-            // Ajusta a rotação para a direção do movimento
-            if (moveDirection != Vector3.zero)
-            {
-                float targetAngle = Mathf.Atan2(moveDirection.x, moveDirection.z) * Mathf.Rad2Deg;
-                //float snappedAngle = Mathf.Round(targetAngle / 90) * 90; // Ajusta para 90 graus
-                transform.rotation = Quaternion.Euler(0, targetAngle, 0);
-            }
-
-            Vector3 move = moveDirection * currentSpeed;
-            rb.velocity = new Vector3(move.x, rb.velocity.y, move.z);
+            Move();
         }
 
         animator.enabled = true;
         AnimationMoviment();
+    }
+    private void Move()
+    {
+            if (Input.GetKey(KeyCode.W))
+            {
+                if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    movedirection = Vector3.forward * sprintSpeed;
+                }
+                else
+                {
+                    movedirection = Vector3.forward * moveSpeed;
+                }
+            }
+            if (Input.GetKeyUp(KeyCode.W))
+            {
+                movedirection = Vector3.zero;
+            }
+
+        rot += Input.GetAxis("Horizontal") * rotSpeed * Time.deltaTime;
+        transform.eulerAngles = new Vector3(0, rot, 0);
+        movedirection.y -= 50;
+        movedirection = transform.TransformDirection(movedirection);
+
+        controller.Move(movedirection * Time.deltaTime);
     }
 
     private void AnimationMoviment()
