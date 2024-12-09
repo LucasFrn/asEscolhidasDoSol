@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d1080173df4327c48bb2085c238d67c0
+guid: 0d619e86acb7f814299fcfe54a5d8419
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -33,38 +33,9 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Armature|Walk (1)
-      takeName: Armature|Walk
-      internalID: 4723146814002874508
-      firstFrame: 0
-      lastFrame: 29
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Armature|Death
-      takeName: Armature|Death
-      internalID: -982115091633673366
+      name: VanyaRig|VanyaAttack
+      takeName: VanyaRig|VanyaAttack
+      internalID: -5647930240945189435
       firstFrame: 0
       lastFrame: 34
       wrapMode: 0
@@ -91,11 +62,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|Idle
-      takeName: Armature|Idle
-      internalID: -8945691123924629249
+      name: VanyaRig|VanyaAttackPlants
+      takeName: VanyaRig|VanyaAttackPlants
+      internalID: -3317362571941666327
       firstFrame: 0
-      lastFrame: 29
+      lastFrame: 34
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -120,11 +91,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|Run
-      takeName: Armature|Run
-      internalID: -7551964380084998518
+      name: VanyaRig|VanyaDeath
+      takeName: VanyaRig|VanyaDeath
+      internalID: -2285483759000045145
       firstFrame: 0
-      lastFrame: 29
+      lastFrame: 34
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -149,11 +120,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|Walk
-      takeName: Armature|Walk
-      internalID: 8349542763059015795
+      name: VanyaRig|VanyaIdle
+      takeName: VanyaRig|VanyaIdle
+      internalID: -6617868187377847830
       firstFrame: 0
-      lastFrame: 29
+      lastFrame: 34
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -178,11 +149,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|ZezinhoCriaAction
-      takeName: Armature|ZezinhoCriaAction
-      internalID: -141894588727031590
+      name: VanyaRig|VanyaIdle.001
+      takeName: VanyaRig|VanyaIdle.001
+      internalID: -6643266815851200020
       firstFrame: 0
-      lastFrame: 0
+      lastFrame: 34
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -273,7 +244,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
