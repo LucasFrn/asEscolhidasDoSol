@@ -1,91 +1,80 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Drawing;
 using UnityEngine;
-using UnityEngine.Audio;
+using System;
 
 public class AudioController : MonoBehaviour
 {
-    public static AudioController controller;
-    public AudioMixer MeuMixer;
-    public AudioSource MinhaMusica;
-    public AudioClip [] MeusSons;
-    void Awake()
+    public static AudioController Instance;
+
+    public Sound[] musicSounds, sfxSounds;
+    public AudioSource musicSource, sfxSource;
+
+    private void Awake()
     {
-        if (controller == null)
+        if (Instance == null)
         {
-            controller= this;
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
-        {        
+        {
             Destroy(gameObject);
-            return;
         }
-        DontDestroyOnLoad(this);
     }
-    public void TrocarMusicaAtiva(string cena)
+    private void Start()
     {
-        Debug.Log("Musica");
-        MinhaMusica.Stop();
-        switch (cena)
-        {
-            case "Menu":
-                MinhaMusica.clip = MeusSons[0];          
-                break;
-            case "Game": 
-                MinhaMusica.clip= MeusSons[1];
-                break;
-            case "Milton":
-                MinhaMusica.clip = MeusSons[2];
-                break;
-            case "Vitoria":
-                MinhaMusica.clip = MeusSons[3];
-                break;
-            case "Derrota":
-                MinhaMusica.clip = MeusSons[4];
-                break;
-            default:
-                break;
-        }
-
-        MinhaMusica.Play();
+        PlayMusic("Musica");
     }
 
-    public void MudarVolumeGeral(float valor)
+    public void PlayMusic(string name)
     {
-        if (valor <= -19)
-        {
-            MeuMixer.SetFloat("VolMaster", -80F);
+        Sound s = Array.Find(musicSounds, x => x.name == name);
 
+        if (s == null)
+        {
+            Debug.Log("SEM MUSICA ENCONTRADA");
         }
         else
         {
-            MeuMixer.SetFloat("VolMaster", valor);
+            musicSource.clip = s.clip;
+            musicSource.Play();
         }
     }
-    public void MudarVolumeMusica(float valor)
-    {
-        if (valor <= -19)
-        {
-            MeuMixer.SetFloat("VolMusica", -80F);
 
+    public void PlaySFX(string name)
+    {
+        Sound s = Array.Find(sfxSounds, x => x.name == name);
+
+        if (s == null)
+        {
+            Debug.Log("SEM SFX ENCONTRADA");
         }
         else
         {
-            MeuMixer.SetFloat("VolMusica", valor);
-        }
-    }
-    public void MudarVolumeEfeitos(float valor)
-    {
-        if (valor <= -19)
-        {
-            MeuMixer.SetFloat("VolEfeitos", -80F);
+            sfxSource.PlayOneShot(s.clip);
 
         }
-        else
-        {
-            MeuMixer.SetFloat("VolEfeitos", valor);
-        }
     }
-    
+
+    public void ToggleMusic()
+    {
+        musicSource.mute = !musicSource.mute;
+    }
+
+    public void ToggleSFX()
+    {
+        sfxSource.mute = !sfxSource.mute;
+    }
+
+    public void MusicVolume(float volume)
+    {
+        musicSource.volume = volume;
+    }
+
+    public void SFXVolume(float volume)
+    {
+        sfxSource.volume = volume;
+    }
+
 }

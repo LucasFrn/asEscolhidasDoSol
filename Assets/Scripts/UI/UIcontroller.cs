@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 
 public class UIcontroller : MonoBehaviour
 {
@@ -9,21 +11,50 @@ public class UIcontroller : MonoBehaviour
     public GameObject tutorial; // Referência ao tutorial
     public GameObject creditos; // Referência ao menu de configurações
     public GameObject PauseMenu; // Referência ao menu de pausa
+    public GameObject config;
     public bool pausado = false; // Indica se o jogo está pausado
+
+    public Slider _musicSlider, _sfxSlider;
+
+    public void ToggleMusic()
+    {
+        AudioController.Instance.ToggleMusic();
+    }
+
+    public void ToggleSFX()
+    {
+        AudioController.Instance.ToggleSFX();
+    }
+
+    public void MusicVolume()
+    {
+        AudioController.Instance.MusicVolume(_musicSlider.value);
+    }
+
+    public void SFXVolume()
+    {
+        AudioController.Instance.SFXVolume(_sfxSlider.value);
+    }
+
 
     void Start()
     {
         InicializarTutorial();
-        InicializarConfig();
+        Inicializarconfig();
+        InicializarCreditos();
     }
-
+    
     private void InicializarTutorial()
     {
         if (tutorial != null)
             tutorial.SetActive(false); // Garante que o tutorial comece desativado
     }
-
-    private void InicializarConfig()
+    private void Inicializarconfig()
+    {
+        if (config != null)
+            config.SetActive(false);
+    }
+    private void InicializarCreditos()
     {
         if (creditos != null)
             creditos.SetActive(false); // Garante que o menu de configurações comece desativado
@@ -63,7 +94,11 @@ public class UIcontroller : MonoBehaviour
     {
         Application.Quit(); // Fecha o jogo (funciona somente no build)
     }
-
+    public void Config()
+    {
+        if (config != null)
+            config.SetActive(true);
+    }
     public void Creditos()
     {
         if (creditos != null)
@@ -81,9 +116,10 @@ public class UIcontroller : MonoBehaviour
         if (tutorial != null)
             tutorial.SetActive(true); // Ativa o tutorial
     }
-
     public void Desactive()
     {
+        if (config != null)
+            config.SetActive(false);
         if (tutorial != null)
             tutorial.SetActive(false); // Desativa o tutorial
         if (creditos != null)
