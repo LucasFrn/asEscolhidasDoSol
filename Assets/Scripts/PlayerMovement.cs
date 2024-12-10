@@ -3,6 +3,7 @@ using UnityEngine.EventSystems;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public AudioSource footstepAudio;
     public float moveSpeed = 5f;      // Velocidade de movimento normal
     public float sprintSpeed = 8f;   // Velocidade ao correr
     private Rigidbody rb;
@@ -34,6 +35,11 @@ public class PlayerMovement : MonoBehaviour
         controller = GetComponent<CharacterController>();
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+        footstepAudio = GetComponent<AudioSource>();
+        if (footstepAudio == null)
+        {
+            footstepAudio = gameObject.AddComponent<AudioSource>();
+        }
     }
 
     void Update()
@@ -51,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
     {
             if (Input.GetKey(KeyCode.W))
             {
+            footstepAudio.Play();
                 if (Input.GetKey(KeyCode.LeftShift))
                 {
                     movedirection = Vector3.forward * sprintSpeed;
@@ -61,9 +68,10 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
             if (Input.GetKeyUp(KeyCode.W))
-            {
+        {
                 movedirection = Vector3.zero;
-            }
+            footstepAudio.Stop();
+        }
 
         rot += Input.GetAxis("Horizontal") * rotSpeed * Time.deltaTime;
         transform.eulerAngles = new Vector3(0, rot, 0);
